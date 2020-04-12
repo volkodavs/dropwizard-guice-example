@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/volkodavs/dropwizard-guice-example.svg?style=svg)](https://circleci.com/gh/volkodavs/dropwizard-guice-example)
+
 # Dropwizard Guice Integration Example
 
 ## Overview 
