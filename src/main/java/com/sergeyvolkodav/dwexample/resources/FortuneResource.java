@@ -18,7 +18,7 @@ public class FortuneResource {
   private final FortuneService fortuneService;
 
   @Inject
-  public FortuneResource(FortuneRandomService fortune) {
+  public FortuneResource(FortuneService fortune) {
     this.fortuneService = fortune;
   }
 

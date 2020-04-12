@@ -6,6 +6,7 @@ import com.hubspot.dropwizard.guicier.DropwizardAwareModule;
 import com.sergeyvolkodav.dwexample.health.ResourceHealthCheck;
 import com.sergeyvolkodav.dwexample.resources.FortuneResource;
 import com.sergeyvolkodav.dwexample.services.FortuneRandomService;
+import com.sergeyvolkodav.dwexample.services.FortuneService;
 
 public class ServerModule extends DropwizardAwareModule<AppConfig> {
 
@@ -13,8 +14,8 @@ public class ServerModule extends DropwizardAwareModule<AppConfig> {
   public void configure(Binder binder) {
     // Binding
     binder.bind(FortuneResource.class);
-    binder.bind(FortuneRandomService.class);
     binder.bind(HttpClientConfig.class);
+    binder.bind(FortuneService.class).to(FortuneRandomService.class);
 
     // Bind extras
     binder.bind(ResourceHealthCheck.class);
