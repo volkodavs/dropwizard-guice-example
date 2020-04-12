@@ -1,6 +1,6 @@
 package com.sergeyvolkodav.dwexample;
 
-import com.hubspot.dropwizard.guice.GuiceBundle;
+import com.hubspot.dropwizard.guicier.GuiceBundle;
 import com.sergeyvolkodav.dwexample.config.AppConfig;
 import com.sergeyvolkodav.dwexample.config.ServerModule;
 import io.dropwizard.Application;
@@ -13,8 +13,6 @@ import io.dropwizard.setup.Environment;
 
 public class FortuneApplication extends Application<AppConfig> {
 
-  private GuiceBundle<AppConfig> guiceBundle;
-
   @Override
   public String getName() {
     return "fortune-app";
@@ -26,13 +24,10 @@ public class FortuneApplication extends Application<AppConfig> {
         new ResourceConfigurationSourceProvider(),
         new EnvironmentVariableSubstitutor(false)
     );
-
     bootstrap.setConfigurationSourceProvider(sourceProvider);
 
-    guiceBundle = GuiceBundle.<AppConfig>newBuilder()
-        .addModule(new ServerModule())
-        .setConfigClass(AppConfig.class)
-        .enableAutoConfig(getClass().getPackage().getName())
+    GuiceBundle<AppConfig> guiceBundle = GuiceBundle.defaultBuilder(AppConfig.class)
+        .modules(new ServerModule())
         .build();
     bootstrap.addBundle(guiceBundle);
   }
@@ -45,7 +40,6 @@ public class FortuneApplication extends Application<AppConfig> {
     if (args == null || args.length == 0) {
       args = new String[]{"server", "app.yml"};
     }
-
     new FortuneApplication().run(args);
   }
 }

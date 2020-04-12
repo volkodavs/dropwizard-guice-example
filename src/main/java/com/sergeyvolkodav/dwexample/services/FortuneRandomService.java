@@ -17,7 +17,7 @@ public class FortuneRandomService implements FortuneService {
     this.fortune = fortune;
     this.random = new Random();
   }
-
+  
   @Override
   public String getAnswer() {
     List<String> messages = fortune.getMessages();

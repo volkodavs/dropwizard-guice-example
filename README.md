@@ -56,7 +56,9 @@ I hope that with this basic project will help you to understand how to integrate
 so you can continue your studies about dependency injection and how to develop code with a lower level of coupling and high level of cohesion.
 
 ## References
+* [Dropwizard](https://www.dropwizard.io/en/latest/) 
 * [Google Guice official repository](https://github.com/google/guice)
+* [Dropwizard Guicier](https://github.com/HubSpot/dropwizard-guicier)
 * [An overview of Guice](https://justin.abrah.ms/misc/an-overview-of-guice-java-dependency-injection.html)
 
 ## License

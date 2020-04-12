@@ -2,7 +2,7 @@ package com.sergeyvolkodav.dwexample.health;
 
 import static javax.servlet.http.HttpServletResponse.SC_OK;
 
-import com.hubspot.dropwizard.guice.InjectableHealthCheck;
+import com.codahale.metrics.health.HealthCheck;
 import com.sergeyvolkodav.dwexample.config.HttpClientConfig;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -11,7 +11,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 
 @Singleton
-public class ResourceHealthCheck extends InjectableHealthCheck {
+public class ResourceHealthCheck extends HealthCheck {
 
   private final Client client;
 
@@ -19,11 +19,6 @@ public class ResourceHealthCheck extends InjectableHealthCheck {
   public ResourceHealthCheck(HttpClientConfig httpClientConfig) {
     super();
     this.client = httpClientConfig.getClient();
-  }
-
-  @Override
-  public String getName() {
-    return "resource-health";
   }
 
   @Override

@@ -15,9 +15,11 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <!--Third party libraries-->
-    <dropwizard.version>1.3.20</dropwizard.version>
-    <dropwizard-guice.version>1.3.5.0</dropwizard-guice.version>
+    <dropwizard.version>1.3.22</dropwizard.version>
+    <dropwizard-guicier.version>1.3.5.2</dropwizard-guicier.version>
     <guice.version>4.2.3</guice.version>
+    <!--fix for dropwizard and guicer integration-->
+    <jetty-server.version>9.4.14.v20181114</jetty-server.version>
 
     <!-- Maven plugins versions -->
     <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
@@ -33,13 +35,18 @@
     </dependency>
     <dependency>
       <groupId>com.hubspot.dropwizard</groupId>
-      <artifactId>dropwizard-guice</artifactId>
-      <version>${dropwizard-guice.version}</version>
+      <artifactId>dropwizard-guicier</artifactId>
+      <version>${dropwizard-guicier.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.inject</groupId>
       <artifactId>guice</artifactId>
       <version>${guice.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-server</artifactId>
+      <version>${jetty-server.version}</version>
     </dependency>
   </dependencies>
 

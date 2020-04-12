@@ -1,7 +1,6 @@
 logging:
   level: INFO
 
-
 fortune:
   messages:
     - It is certain.
