@@ -2,7 +2,7 @@
 
 # Magic 8-Ball. Dropwizard Guice Integration
 
-## Overview 
+## Introduction  
 
 The motivation of the project is to show how to integrate Dropwizard application with Guice DI Framework. 
 As an example application, I build a [Magic 8-Ball](https://en.wikipedia.org/wiki/Magic_8-Ball) REST API 
