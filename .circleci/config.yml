@@ -20,9 +20,3 @@ jobs:
           name: Build
           command: |
             mvn clean install -Dmaven.javadoc.skip=true
-
-      - run:
-          name: Deploy to docker hub
-          command: |
-            docker login -u $DOCKER_USER -p $DOCKER_PASS
-            docker push volkodav/forecast-api:0.1.0-SNAPSHOT
