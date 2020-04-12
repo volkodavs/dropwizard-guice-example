@@ -11,11 +11,10 @@ public class ServerModule extends DropwizardAwareModule<AppConfig> {
 
   @Override
   public void configure(Binder binder) {
-    // Bind
+    // Binding
     binder.bind(FortuneResource.class);
     binder.bind(FortuneRandomService.class);
     binder.bind(HttpClientConfig.class);
-//    binder.bind(FortuneRandomService.class).in(Singleton.class);
 
     // Bind extras
     binder.bind(ResourceHealthCheck.class);
