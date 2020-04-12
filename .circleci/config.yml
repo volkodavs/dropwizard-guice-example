@@ -1,0 +1,28 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: docker:17.05.0-ce-git
+    working_directory: ~/climatetipster
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: apk add --update curl git openssh nss maven protobuf wget openjdk11 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community && rm -rf /var/cache/apk/*
+      - restore_cache:
+          key: dropwizard-guice-{{ checksum "pom.xml" }}
+      - run: mvn --fail-never dependency:go-offline || true
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: dropwizard-guice-{{ checksum "pom.xml" }}
+
+      - run:
+          name: Build
+          command: |
+            mvn clean install -Dmaven.javadoc.skip=true
+
+      - run:
+          name: Deploy to docker hub
+          command: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker push volkodav/forecast-api:0.1.0-SNAPSHOT
