@@ -14,9 +14,9 @@ Dependency injection is a technique whereby one object supplies the dependencies
 A dependency is an object that can be used (a service).
 
 ### Dependency injection types
-* *constructor injection:* the dependencies are provided through a class constructor.
-* *setter injection:* the client exposes a setter method that the injector uses to inject the dependency
-* *interface injection:* the dependency provides an injector method that will inject the dependency into any client passed to it. Clients must implement an interface that exposes a setter method that accepts the dependency
+* **constructor injection:** the dependencies are provided through a class constructor.
+* **setter injection:** the client exposes a setter method that the injector uses to inject the dependency
+* **interface injection:** the dependency provides an injector method that will inject the dependency into any client passed to it. Clients must implement an interface that exposes a setter method that accepts the dependency
 
 
 ## Why Google Guice
