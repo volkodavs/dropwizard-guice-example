@@ -8,7 +8,16 @@ The [Magic 8-Ball](https://en.wikipedia.org/wiki/Magic_8-Ball) is a plastic sphe
 that is used for fortune-telling or seeking advice.
 
 
-Dependency injection is a technique whereby one object supplies the dependencies of another object.A dependency is an object that can be used (a service).
+## Why DI Framework
+
+Dependency injection is a technique whereby one object supplies the dependencies of another object. 
+A dependency is an object that can be used (a service).
+
+### Dependency injection types
+* *constructor injection:* the dependencies are provided through a class constructor.
+* *setter injection:* the client exposes a setter method that the injector uses to inject the dependency
+* *interface injection:* the dependency provides an injector method that will inject the dependency into any client passed to it. Clients must implement an interface that exposes a setter method that accepts the dependency
+
 
 ## Why Google Guice
 
@@ -20,11 +29,6 @@ Dependency injection (DI) is a way to give an object it's dependencies.
 Dependency injection (the means of giving a class it's dependencies) can take two main forms: constructor injection and setter injection. They're pretty much what they sound like. Constructor injection is passing in the dependencies to the constructor. With setter injection, you create the object with an empty constructor and call setFoo to add the Foo dependency.
 
 I personally prefer constructor injection, because you don't have an object which is in an intermediate invalid state which eliminates lots of checking to ensure the object is valid.
-
-## Why DI Framework
-
-When doing "DI by hand" this means, that you must change all paths to all components and their transitive dependencies by hand.
-That might just be quite some work.
 
 ## Why Guice-HK2 bridge required?
 
