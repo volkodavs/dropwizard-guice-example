@@ -4,11 +4,11 @@
 
 ## Overview 
 
-The [Magic 8-Ball](https://en.wikipedia.org/wiki/Magic_8-Ball) is a plastic sphere, made to look like an eight-ball, 
-that is used for fortune-telling or seeking advice.
+The motivation of the project is to show how to integrate Dropwizard application with Guice DI Framework. 
+As an example application, I build a [Magic 8-Ball](https://en.wikipedia.org/wiki/Magic_8-Ball) REST API 
+The Magic 8-Ball] is a plastic sphere, made to look like an eight-ball, that is used for fortune-telling or seeking advice.
 
-
-## Why DI Framework
+## Why Dependency Injection? 
 
 Dependency injection is a technique whereby one object supplies the dependencies of another object. 
 A dependency is an object that can be used (a service).
@@ -16,19 +16,15 @@ A dependency is an object that can be used (a service).
 ### Dependency injection types
 * **constructor injection:** the dependencies are provided through a class constructor.
 * **setter injection:** the client exposes a setter method that the injector uses to inject the dependency
-* **interface injection:** the dependency provides an injector method that will inject the dependency into any client passed to it. Clients must implement an interface that exposes a setter method that accepts the dependency
+* **interface injection:** the dependency provides an injector method that will inject the dependency into any client passed to it.
+Clients must implement an interface that exposes a setter method that accepts the dependency
 
+I personally prefer constructor injection, because you don't have an object which is in an intermediate invalid state which eliminates lots of checking to ensure the object is valid.
 
 ## Why Google Guice
 
-Google's Guice is a Java-based dependency injection framework. 
-It to build a graph of dependencies so you can instantiate complex objects made of simpler parts.
-
-## What is dependency injection?
-Dependency injection (DI) is a way to give an object it's dependencies.
-Dependency injection (the means of giving a class it's dependencies) can take two main forms: constructor injection and setter injection. They're pretty much what they sound like. Constructor injection is passing in the dependencies to the constructor. With setter injection, you create the object with an empty constructor and call setFoo to add the Foo dependency.
-
-I personally prefer constructor injection, because you don't have an object which is in an intermediate invalid state which eliminates lots of checking to ensure the object is valid.
+Google Guice is a framework to automate dependency injection by providing a container to where we can map abstractions and implementations.
+After the mapping, the dependencies will be automatic injected in clients when requested.
 
 ## Why Guice-HK2 bridge required?
 
@@ -54,6 +50,10 @@ $ mvn clean package
 ```shell script
 $ java -jar target/dropwizard-guice-example-0.1.0-SNAPSHOT.jar server
 ``` 
+
+## Conclusion
+I hope that with this basic project will help you to understand how to integrate Guice with Dropwizard,
+so you can continue your studies about dependency injection and how to develop code with a lower level of coupling and high level of cohesion.
 
 ## References
 * [Google Guice official repository](https://github.com/google/guice)
