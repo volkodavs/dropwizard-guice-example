@@ -48,7 +48,7 @@ $ mvn clean package
 ## How to start 
 
 ```shell script
-$ java -jar target/dropwizard-guice-example-0.1.0-SNAPSHOT.jar server
+$ java -jar target/fortune-app.jar server
 ``` 
 
 ## Conclusion

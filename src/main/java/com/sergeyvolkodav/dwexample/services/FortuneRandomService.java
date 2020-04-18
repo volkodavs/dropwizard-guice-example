@@ -4,9 +4,7 @@ import com.sergeyvolkodav.dwexample.config.FortuneConfig;
 import java.util.List;
 import java.util.Random;
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
-@Singleton
 public class FortuneRandomService implements FortuneService {
 
   private final FortuneConfig fortune;
@@ -17,7 +15,7 @@ public class FortuneRandomService implements FortuneService {
     this.fortune = fortune;
     this.random = new Random();
   }
-  
+
   @Override
   public String getAnswer() {
     List<String> messages = fortune.getMessages();

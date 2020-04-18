@@ -5,12 +5,10 @@ import static javax.servlet.http.HttpServletResponse.SC_OK;
 import com.codahale.metrics.health.HealthCheck;
 import com.sergeyvolkodav.dwexample.config.HttpClientConfig;
 import javax.inject.Inject;
-import javax.inject.Singleton;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 
-@Singleton
 public class ResourceHealthCheck extends HealthCheck {
 
   private final Client client;
