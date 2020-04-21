@@ -3,7 +3,6 @@ package com.sergeyvolkodav.dwexample.health;
 import static javax.servlet.http.HttpServletResponse.SC_OK;
 
 import com.codahale.metrics.health.HealthCheck;
-import com.sergeyvolkodav.dwexample.config.HttpClientConfig;
 import javax.inject.Inject;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
@@ -14,9 +13,9 @@ public class ResourceHealthCheck extends HealthCheck {
   private final Client client;
 
   @Inject
-  public ResourceHealthCheck(HttpClientConfig httpClientConfig) {
+  public ResourceHealthCheck(Client client) {
     super();
-    this.client = httpClientConfig.getClient();
+    this.client = client;
   }
 
   @Override
