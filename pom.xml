@@ -24,7 +24,7 @@
     <!-- Maven plugins versions -->
     <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
     <maven-shade-plugin.version>2.4.3</maven-shade-plugin.version>
-    <maven-failsafe-plugin.version>2.18</maven-failsafe-plugin.version>
+    <maven-failsafe-plugin.version>3.0.0-M4</maven-failsafe-plugin.version>
   </properties>
 
   <dependencies>
@@ -47,6 +47,13 @@
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-server</artifactId>
       <version>${jetty-server.version}</version>
+    </dependency>
+    <!--testing -->
+    <dependency>
+      <groupId>io.dropwizard</groupId>
+      <artifactId>dropwizard-testing</artifactId>
+      <version>${dropwizard.version}</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
@@ -99,6 +106,19 @@
             <arg>-parameters</arg>
           </compilerArgs>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>${maven-failsafe-plugin.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
