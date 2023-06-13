@@ -19,7 +19,7 @@
     <dropwizard-guicier.version>1.3.5.2</dropwizard-guicier.version>
     <guice.version>4.2.3</guice.version>
     <!--fix for dropwizard and guicer integration-->
-    <jetty-server.version>9.4.17.v20190418</jetty-server.version>
+    <jetty-server.version>9.4.51.v20230217</jetty-server.version>
 
     <!-- Maven plugins versions -->
     <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
